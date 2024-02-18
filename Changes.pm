@@ -5,6 +5,7 @@ use strict;
 use warnings;
 
 use Class::Utils qw(set_params split_params);
+use English;
 use Error::Pure qw(err);
 use Scalar::Util qw(blessed);
 
@@ -87,11 +88,13 @@ sub _process {
 			['b', 'ul'],
 			['a', 'class', 'changes'],
 		);
+		# TODO Rewrite to entries.
 		foreach my $group ($changes_rel->group_values) {
-			if ($group->name ne '') {
+			my $group_name = eval { $group->name };
+			if (! $EVAL_ERROR && $group_name ne '') {
 				$self->{'tags'}->put(
 					['b', 'h3'],
-					['d', '['.$group->name.']'],
+					['d', '['.$group_name.']'],
 					['e', 'h3'],
 				);
 			}

@@ -18,6 +18,7 @@ name 'Tags-HTML-CPAN-Changes';
 readme_from 'Changes.pm';
 recursive_author_tests('xt');
 requires 'Class::Utils' => 0;
+requires 'English' => 0;
 requires 'Error::Pure' => 0;
 requires 'Tags::HTML' => 0.02;
 requires 'Scalar::Util' => 0;
