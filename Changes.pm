@@ -174,3 +174,331 @@ sub _process_css {
 1;
 
 __END__
+
+=pod
+
+=encoding utf8
+
+=head1 NAME
+
+Tags::HTML::CPAN::Changes - Tags helper for CPAN changes.
+
+=head1 SYNOPSIS
+
+ use Tags::HTML::CPAN::Changes;
+
+ my $obj = Tags::HTML::CPAN::Changes->new(%params);
+ $obj->cleanup;
+ $obj->init($changes);
+ $obj->prepare;
+ $obj->process;
+ $obj->process_css;
+
+=head1 METHODS
+
+=head2 C<new>
+
+ my $obj = Tags::HTML::CPAN::Changes->new(%params);
+
+Constructor.
+
+=over 8
+
+=item * C<css>
+
+'L<CSS::Struct::Output>' object for L<process_css> processing.
+
+Default value is undef.
+
+=item * C<no_css>
+
+No CSS support flag.
+If this flag is set to 1, L<process_css()> returns undef.
+
+Default value is 0.
+
+=item * C<tags>
+
+'L<Tags::Output>' object.
+
+Default value is undef.
+
+=back
+
+=head2 C<cleanup>
+
+ $obj->cleanup;
+
+Cleanup module to init state.
+
+Returns undef.
+
+=head2 C<init>
+
+ $obj->init($changes);
+
+Set L<CPAN::Changes> instance defined by C<$changes> to object.
+
+Returns undef.
+
+=head2 C<prepare>
+
+ $obj->prepare;
+
+Process initialization before page run.
+
+Do nothing in this module.
+
+Returns undef.
+
+=head2 C<process>
+
+ $obj->process;
+
+Process L<Tags> structure for output with message.
+
+Returns undef.
+
+=head2 C<process_css>
+
+ $obj->process_css;
+
+Process L<CSS::Struct> structure for output.
+
+Returns undef.
+
+=head1 ERRORS
+
+ new():
+         From Class::Utils::set_params():
+                 Unknown parameter '%s'.
+         From Tags::HTML::new():
+                 Parameter 'tags' must be a 'Tags::Output::*' class.
+
+ process():
+         From Tags::HTML::process():
+                 Parameter 'tags' isn't defined.
+
+=head1 EXAMPLE1
+
+=for comment filename=example_change_raw.pl
+
+ use strict;
+ use warnings;
+
+ use CSS::Struct::Output::Raw;
+ use CPAN::Changes;
+ use Tags::HTML::CPAN::Changes;
+ use Tags::HTML::Page::Begin;
+ use Tags::HTML::Page::End;
+ use Tags::Output::Raw;
+ use Unicode::UTF8 qw(decode_utf8 encode_utf8);
+
+ my $css = CSS::Struct::Output::Raw->new;
+ my $tags = Tags::Output::Raw->new(
+         'xml' => 1,
+ );
+
+ my $begin = Tags::HTML::Page::Begin->new(
+         'author' => decode_utf8('Michal Josef Špaček'),
+         'css' => $css,
+         'generator' => 'EXAMPLE1',
+         'lang' => {
+                 'title' => 'Hello world!',
+         },
+         'tags' => $tags,
+ );
+ my $end = Tags::HTML::Page::End->new(
+         'tags' => $tags,
+ );
+ my $obj = Tags::HTML::CPAN::Changes->new(
+         'css' => $css,
+         'tags' => $tags,
+ );
+
+ # Example changes object.
+ my $changes = CPAN::Changes->new(
+         'preamble' => 'Revision history for perl module Foo::Bar',
+ );
+ $changes->add_release({
+         'changes' => {
+                 '' => [
+                         'item #1',
+                 ],
+         },
+         'date' => '2009-07-06',
+         'version' => 0.01,
+ });
+
+ # Init.
+ $obj->init($changes);
+
+ # Process CSS.
+ $obj->process_css;
+
+ # Process HTML.
+ $begin->process;
+ $obj->process;
+ $end->process;
+
+ # Print out.
+ print encode_utf8($tags->flush);
+
+ # Output:
+ # <!DOCTYPE html>
+ # <html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /><meta name="author" content="Michal Josef Špaček" /><meta name="generator" content="EXAMPLE1" /><meta name="viewport" content="width=device-width, initial-scale=1.0" /><title>Hello world!</title><style type="text/css">.changes{max-width:800px;margin:auto;background:#fff;padding:20px;border-radius:8px;box-shadow:0 2px 4px rgba(0, 0, 0, 0.1);}.changes .version{border-bottom:2px solid #eee;padding-bottom:20px;margin-bottom:20px;}.changes .version:last-child{border-bottom:none;}.changes .version h2,.changes .version h3{color:#007BFF;margin-top:0;}.changes .changes{list-style-type:none;padding-left:0;}.changes .change{background-color:#f8f9fa;margin:10px 0;padding:10px;border-left:4px solid #007BFF;border-radius:4px;}
+ # </style></head><body><div class="changes"><div class="version"><h2>0.01 - 2009-07-06</h2><ul class="changes"><li class="change">item #1</li></ul></div></div></body></html>
+
+=head1 EXAMPLE2
+
+=for comment filename=example_change_indent.pl
+
+ use strict;
+ use warnings;
+
+ use CSS::Struct::Output::Indent;
+ use CPAN::Changes;
+ use Tags::HTML::CPAN::Changes;
+ use Tags::HTML::Page::Begin;
+ use Tags::HTML::Page::End;
+ use Tags::Output::Indent;
+ use Unicode::UTF8 qw(decode_utf8 encode_utf8);
+
+ my $css = CSS::Struct::Output::Indent->new;
+ my $tags = Tags::Output::Indent->new(
+         'preserved' => ['style'],
+         'xml' => 1,
+ );
+
+ my $begin = Tags::HTML::Page::Begin->new(
+         'author' => decode_utf8('Michal Josef Špaček'),
+         'css' => $css,
+         'generator' => 'EXAMPLE2',
+         'lang' => {
+                 'title' => 'Hello world!',
+         },
+         'tags' => $tags,
+ );
+ my $end = Tags::HTML::Page::End->new(
+         'tags' => $tags,
+ );
+
+ my $obj = Tags::HTML::CPAN::Changes->new(
+         'css' => $css,
+         'tags' => $tags,
+ );
+
+ # Example changes object.
+ my $changes = CPAN::Changes->new(
+         'preamble' => 'Revision history for perl module Foo::Bar',
+ );
+ $changes->add_release({
+         'changes' => {
+                 '' => [
+                         'item #1',
+                 ],
+         },
+         'date' => '2009-07-06',
+         'version' => 0.01,
+ });
+
+ # Init.
+ $obj->init($changes);
+
+ # Process CSS.
+ $obj->process_css;
+
+ # Process HTML.
+ $begin->process;
+ $obj->process;
+ $end->process;
+
+ # Print out.
+ print encode_utf8($tags->flush);
+
+ # Output:
+ # <!DOCTYPE html>
+ # <html lang="en">
+ #   <head>
+ #     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+ #     <meta name="author" content="Michal Josef Špaček" />
+ #     <meta name="generator" content="EXAMPLE2" />
+ #     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+ #     <title>
+ #       Hello world!
+ #     </title>
+ #     <style type="text/css">
+ # .changes {
+ # 	max-width: 800px;
+ # 	margin: auto;
+ # 	background: #fff;
+ # 	padding: 20px;
+ # 	border-radius: 8px;
+ # 	box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+ # }
+ # .changes .version {
+ # 	border-bottom: 2px solid #eee;
+ # 	padding-bottom: 20px;
+ # 	margin-bottom: 20px;
+ # }
+ # .changes .version:last-child {
+ # 	border-bottom: none;
+ # }
+ # .changes .version h2, .changes .version h3 {
+ # 	color: #007BFF;
+ # 	margin-top: 0;
+ # }
+ # .changes .changes {
+ # 	list-style-type: none;
+ # 	padding-left: 0;
+ # }
+ # .changes .change {
+ # 	background-color: #f8f9fa;
+ # 	margin: 10px 0;
+ # 	padding: 10px;
+ # 	border-left: 4px solid #007BFF;
+ # 	border-radius: 4px;
+ # }
+ # </style>
+ #   </head>
+ #   <body>
+ #     <div class="changes">
+ #       <div class="version">
+ #         <h2>
+ #           0.01 - 2009-07-06
+ #         </h2>
+ #         <ul class="changes">
+ #           <li class="change">
+ #             item #1
+ #           </li>
+ #         </ul>
+ #       </div>
+ #     </div>
+ #   </body>
+ # </html>
+
+=head1 DEPENDENCIES
+
+None.
+
+=head1 REPOSITORY
+
+L<https://github.com/michal-josef-spacek/Tags-HTML-CPAN-Changes>
+
+=head1 AUTHOR
+
+Michal Josef Špaček L<mailto:skim@cpan.org>
+
+L<http://skim.cz>
+
+=head1 LICENSE AND COPYRIGHT
+
+© 2024 Michal Josef Špaček
+
+BSD 2-Clause License
+
+=head1 VERSION
+
+0.01
+
+=cut

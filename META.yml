@@ -18,6 +18,7 @@ meta-spec:
 name: Tags-HTML-CPAN-Changes
 no_index:
   directory:
+    - examples
     - inc
     - t
     - xt
