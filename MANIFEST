@@ -20,5 +20,6 @@ META.yml
 README
 t/Tags-HTML-CPAN-Changes/01-use.t
 t/Tags-HTML-CPAN-Changes/02-version.t
+t/Tags-HTML-CPAN-Changes/03-new.t
 xt/Tags-HTML-CPAN-Changes/01-pod_coverage.t
 xt/Tags-HTML-CPAN-Changes/02-pod.t
