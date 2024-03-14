@@ -48,6 +48,8 @@ METHODS
 
     Set CPAN::Changes instance defined by $changes to object.
 
+    Minimal version of CPAN::Changes is 0.500002.
+
     Returns undef.
 
   "prepare"

@@ -251,6 +251,8 @@ Returns undef.
 
 Set L<CPAN::Changes> instance defined by C<$changes> to object.
 
+Minimal version of L<CPAN::Changes> is 0.500002.
+
 Returns undef.
 
 =head2 C<prepare>
