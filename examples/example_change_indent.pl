@@ -95,11 +95,11 @@ print encode_utf8($tags->flush);
 # 	color: #007BFF;
 # 	margin-top: 0;
 # }
-# .changes .changes {
+# .changes .version-changes {
 # 	list-style-type: none;
 # 	padding-left: 0;
 # }
-# .changes .change {
+# .changes .version-change {
 # 	background-color: #f8f9fa;
 # 	margin: 10px 0;
 # 	padding: 10px;
@@ -114,8 +114,8 @@ print encode_utf8($tags->flush);
 #         <h2>
 #           0.01 - 2009-07-06
 #         </h2>
-#         <ul class="changes">
-#           <li class="change">
+#         <ul class="version-changes">
+#           <li class="version-change">
 #             item #1
 #           </li>
 #         </ul>

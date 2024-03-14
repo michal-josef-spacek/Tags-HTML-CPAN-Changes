@@ -86,7 +86,7 @@ sub _process {
 		);
 		$self->{'tags'}->put(
 			['b', 'ul'],
-			['a', 'class', 'changes'],
+			['a', 'class', 'version-changes'],
 		);
 		# TODO Rewrite to entries.
 		foreach my $group ($changes_rel->group_values) {
@@ -101,7 +101,7 @@ sub _process {
 			foreach my $change (@{$group->changes}) {
 				$self->{'tags'}->put(
 					['b', 'li'],
-					['a', 'class', 'change'],
+					['a', 'class', 'version-change'],
 					['d', $change],
 					['e', 'li'],
 				);
@@ -154,12 +154,12 @@ sub _process_css {
 		['d', 'margin-top', 0],
 		['e'],
 
-		['s', '.'.$self->{'css_class'}.' .changes'],
+		['s', '.'.$self->{'css_class'}.' .version-changes'],
 		['d', 'list-style-type', 'none'],
 		['d', 'padding-left', 0],
 		['e'],
 
-		['s', '.'.$self->{'css_class'}.' .change'],
+		['s', '.'.$self->{'css_class'}.' .version-change'],
 		['d', 'background-color', '#f8f9fa'],
 		['d', 'margin', '10px 0'],
 		['d', 'padding', '10px'],
@@ -346,8 +346,8 @@ Returns undef.
 
  # Output:
  # <!DOCTYPE html>
- # <html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /><meta name="author" content="Michal Josef Špaček" /><meta name="generator" content="EXAMPLE1" /><meta name="viewport" content="width=device-width, initial-scale=1.0" /><title>Hello world!</title><style type="text/css">.changes{max-width:800px;margin:auto;background:#fff;padding:20px;border-radius:8px;box-shadow:0 2px 4px rgba(0, 0, 0, 0.1);}.changes .version{border-bottom:2px solid #eee;padding-bottom:20px;margin-bottom:20px;}.changes .version:last-child{border-bottom:none;}.changes .version h2,.changes .version h3{color:#007BFF;margin-top:0;}.changes .changes{list-style-type:none;padding-left:0;}.changes .change{background-color:#f8f9fa;margin:10px 0;padding:10px;border-left:4px solid #007BFF;border-radius:4px;}
- # </style></head><body><div class="changes"><div class="version"><h2>0.01 - 2009-07-06</h2><ul class="changes"><li class="change">item #1</li></ul></div></div></body></html>
+ # <html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /><meta name="author" content="Michal Josef Špaček" /><meta name="generator" content="EXAMPLE1" /><meta name="viewport" content="width=device-width, initial-scale=1.0" /><title>Hello world!</title><style type="text/css">.changes{max-width:800px;margin:auto;background:#fff;padding:20px;border-radius:8px;box-shadow:0 2px 4px rgba(0, 0, 0, 0.1);}.changes .version{border-bottom:2px solid #eee;padding-bottom:20px;margin-bottom:20px;}.changes .version:last-child{border-bottom:none;}.changes .version h2,.changes .version h3{color:#007BFF;margin-top:0;}.changes .version-changes{list-style-type:none;padding-left:0;}.changes .version-change{background-color:#f8f9fa;margin:10px 0;padding:10px;border-left:4px solid #007BFF;border-radius:4px;}
+ # </style></head><body><div class="changes"><div class="version"><h2>0.01 - 2009-07-06</h2><ul class="version-changes"><li class="version-change">item #1</li></ul></div></div></body></html>
 
 =head1 EXAMPLE2
 
@@ -448,11 +448,11 @@ Returns undef.
  # 	color: #007BFF;
  # 	margin-top: 0;
  # }
- # .changes .changes {
+ # .changes .version-changes {
  # 	list-style-type: none;
  # 	padding-left: 0;
  # }
- # .changes .change {
+ # .changes .version-change {
  # 	background-color: #f8f9fa;
  # 	margin: 10px 0;
  # 	padding: 10px;
@@ -467,8 +467,8 @@ Returns undef.
  #         <h2>
  #           0.01 - 2009-07-06
  #         </h2>
- #         <ul class="changes">
- #           <li class="change">
+ #         <ul class="version-changes">
+ #           <li class="version-change">
  #             item #1
  #           </li>
  #         </ul>
