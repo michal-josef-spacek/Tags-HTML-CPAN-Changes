@@ -31,6 +31,7 @@ no_index:
     - t
     - xt
 requires:
+  CPAN::Version: 0
   Class::Utils: 0
   English: 0
   Error::Pure: 0

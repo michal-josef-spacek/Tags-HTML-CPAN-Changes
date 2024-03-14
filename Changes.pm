@@ -5,6 +5,7 @@ use strict;
 use warnings;
 
 use Class::Utils qw(set_params split_params);
+use CPAN::Version;
 use English;
 use Error::Pure qw(err);
 use Scalar::Util qw(blessed);
@@ -50,6 +51,12 @@ sub _init {
 		|| ! $changes->isa('CPAN::Changes')) {
 
 		err "Data object must be a 'CPAN::Changes' instance.";
+	}
+
+	if (CPAN::Version->vlt($changes->VERSION, '0.500002')) {
+		err "Minimal version of supported CPAN::Changes is 0.500002.",
+			'Version', $changes->VERSION,
+		;
 	}
 
 	$self->{'_changes'} = $changes;
@@ -279,6 +286,10 @@ Returns undef.
                  Unknown parameter '%s'.
          From Tags::HTML::new():
                  Parameter 'tags' must be a 'Tags::Output::*' class.
+
+ init():
+         Minimal version of supported CPAN::Changes is 0.500002.",
+                 Version: %s
 
  process():
          From Tags::HTML::process():
