@@ -1,0 +1,59 @@
+This file contains message digests of all files listed in MANIFEST,
+signed via the Module::Signature module, version 0.87.
+
+To verify the content in this distribution, first make sure you have
+Module::Signature installed, then type:
+
+    % cpansign -v
+
+It will check each file's integrity, as well as the signature's
+validity.  If "==> Signature verified OK! <==" is not displayed,
+the distribution may already have been compromised, and you should
+not run its Makefile.PL or Build.PL.
+
+-----BEGIN PGP SIGNED MESSAGE-----
+Hash: RIPEMD160
+
+SHA256 743b4b9bba0919ce3787690d0137f9e004f047b437eb62382f9ddbf71628c148 Changes
+SHA256 e7523e8e439cbb1173f76037ae24b2499cfd40fcacc93e79ab68e2173af0a0ab Changes.pm
+SHA256 e9721661dbfb60dadebf3cd197cbc00239895aa73fb3431e19490cfad301cf99 LICENSE
+SHA256 579939c161e27b5a2b8ab8ee9a89c7ca1d6bf25e43be2e1b39f565f3e9978b02 MANIFEST
+SHA256 d780902b86bd4276256dc270a2383207113b7b2c8cd29627e1c23aa6fa0e453e META.yml
+SHA256 cf00ff21196ed31c30ad7450c673b757695eaf7637c489b82bc7c0e253e2695b Makefile.PL
+SHA256 3377751a8314fbd4a80eb5d6ee34332da0ad9bed3f876ea4cf5db198c71fc0b7 README
+SHA256 d241da4fede1c558f8eeea08d45b9a5fe657ae7a038ae651ca8294fc60c5272e examples/example_change_indent.pl
+SHA256 7dd43d7b942d01e74e7b7f3bbbc97977eede0e13edba80e84265fca179c2792a examples/example_change_raw.pl
+SHA256 cd5397bbe618f5bbd4e12a33b0cf5d21114e771c2dbd0ce28e2135beb52c35a8 inc/Module/Install.pm
+SHA256 8bd506c33fb78f10f6451413e931ca23541fcc4eebe05fcb7c7c9577341223c4 inc/Module/Install/AuthorRequires.pm
+SHA256 1b5430a46a35142ef8914d8c745196fca825defc9dfa7e389299bf294613825e inc/Module/Install/AuthorTests.pm
+SHA256 798836f9ccb8d204b1be31fc3835631f57e9d818b21a8f0d14bfcfb82ff4a72a inc/Module/Install/Base.pm
+SHA256 d64cd4c16f83c5baf11f64a44bea3a0abc060a49da5aba040f0eb01394bf75ab inc/Module/Install/Can.pm
+SHA256 65d7a6098bf3f829e8c1c2865476d3537aa6f0ad0ffc9149e10812c856529043 inc/Module/Install/Fetch.pm
+SHA256 70c4b77acab3ff51dfb318110369607cb109e1c319459249623b787cf3859750 inc/Module/Install/Makefile.pm
+SHA256 14556386168007ce913e669fc08a332ccdb6140246fd55a90c879b5190c1b57a inc/Module/Install/Metadata.pm
+SHA256 53825bc78e4c910b888160bc148c8bc211be58e02b99c8edcbf4854f95faa049 inc/Module/Install/ReadmeFromPod.pm
+SHA256 4c746c02c5cc19bed4c352e76205b4adff4c45ce8310d71294e1b83c059659c2 inc/Module/Install/Win32.pm
+SHA256 d3d9b4583243c470ae895defa4c44564485b53693cba1c50ab0320768f443e97 inc/Module/Install/WriteAll.pm
+SHA256 91818ae6f237746a9704fab252053735db5d6a3f974944b5873a7858839844d4 t/Tags-HTML-CPAN-Changes/01-use.t
+SHA256 bddc6a30d55fdd33a0128bdb775599ad1dd2f02bbcc58a23cf17ae97d350361a t/Tags-HTML-CPAN-Changes/02-version.t
+SHA256 0714ba28879c1166dd0f6b8e720694b8894221038e2665eb059d9e52b6d1869d t/Tags-HTML-CPAN-Changes/03-new.t
+SHA256 269fb3a8adcb5e8057669c12f8ed3e6e5e6a7809e688861e105cf58ff708bcf6 t/Tags-HTML-CPAN-Changes/04-cleanup.t
+SHA256 04025fe8391fcb505012520923bdc7ed24ed22e1f117e1a407ea53d20f9c7994 t/Tags-HTML-CPAN-Changes/05-init.t
+SHA256 6289b1ac3069697c93711d167eb90a6f94e1e39b62f025947a5a576608b57ec8 t/Tags-HTML-CPAN-Changes/06-process.t
+SHA256 1b7897c166a24ce0cede523bea55aaecc3575512bc6016ad34d5929940763c05 t/Tags-HTML-CPAN-Changes/07-process_css.t
+SHA256 2fc7dcbe07d445f2e359ef91b92882f8c95140a057e0bf1e75dd2d73436b6c8a xt/Tags-HTML-CPAN-Changes/01-pod_coverage.t
+SHA256 5f57b765d1eec9ddae46ed0c7d206044b463e8d4fada2f401977f64688aa1631 xt/Tags-HTML-CPAN-Changes/02-pod.t
+-----BEGIN PGP SIGNATURE-----
+
+iQGzBAEBAwAdFiEEbhzVZugfHqSVNvE7YSp92FNcjtAFAmXyyUMACgkQYSp92FNc
+jtDZMAv+LrB79WvMZihe/HiGEO30qbkDJiKXeMREhVCiqE/rMe1QPwVCzadjHx3D
+OPhUVnqRfPQomH02jPQV67q9JVQnyyON7Ft/Jp6A4BElt0vbcirav4rTLI5DNiOn
+0+B59y7Pr1x3YKXpWGARAXaZQeMKabrrtG+CwvA5L/ceNcZswcsY88OnRD5YP7Rj
+mCdaL205ZQZvvRERhYhsUYakxw3ml/wd8BrDTtUAbiK8tGQPuqpbp4Qd9E2/o/vg
+ubpG37/l+qpnfs4sGIvuhgyz5je9Dkzndd7Ft1bbowZ9QGn6PqsXnfO8XWrRRQXJ
+6R563PjTQ+rLvaJuZH0RsaB9tYusmFqrDZSToOqu0K0spBT9Pk4CxLfDEIGqs8Vj
+LWC4nnZiaGWG7AE6dIf7rYTLfapRDeVxIrbzT5q49MMbYiDWbrsI7rpY5iJzlH2M
+sG5H/S06ncG1rKlQPJ93ACcaseXx/WGNYhQ3xq5t2vxjCjGcefEmqrxaAFBM8fuZ
+gIxqO+Cs
+=tobP
+-----END PGP SIGNATURE-----
