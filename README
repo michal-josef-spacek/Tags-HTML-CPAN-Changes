@@ -281,7 +281,8 @@ EXAMPLE2
      # </html>
 
 DEPENDENCIES
-    None.
+    Class::Utils, CPAN::Version, English, Error::Pure, Scalar::Util,
+    Tags::HTML.
 
 REPOSITORY
     <https://github.com/michal-josef-spacek/Tags-HTML-CPAN-Changes>

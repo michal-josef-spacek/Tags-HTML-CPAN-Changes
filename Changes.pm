@@ -495,7 +495,12 @@ Returns undef.
 
 =head1 DEPENDENCIES
 
-None.
+L<Class::Utils>,
+L<CPAN::Version>,
+L<English>,
+L<Error::Pure>,
+L<Scalar::Util>,
+L<Tags::HTML>.
 
 =head1 REPOSITORY
 
