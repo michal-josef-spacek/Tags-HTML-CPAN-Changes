@@ -5,6 +5,8 @@ use warnings;
 
 use CSS::Struct::Output::Indent;
 use CPAN::Changes;
+use CPAN::Changes::Entry;
+use CPAN::Changes::Release;
 use Tags::HTML::CPAN::Changes;
 use Tags::HTML::Page::Begin;
 use Tags::HTML::Page::End;
@@ -38,16 +40,20 @@ my $obj = Tags::HTML::CPAN::Changes->new(
 # Example changes object.
 my $changes = CPAN::Changes->new(
         'preamble' => 'Revision history for perl module Foo::Bar',
+        'releases' => [
+                CPAN::Changes::Release->new(
+                        'date' => '2009-07-06',
+                        'entries' => [
+                                CPAN::Changes::Entry->new(
+                                        'entries' => [
+                                                'item #1',
+                                        ],
+                                ),
+                        ],
+                        'version' => 0.01,
+                ),
+        ],
 );
-$changes->add_release({
-        'changes' => {
-                '' => [
-                        'item #1',
-                ],
-        },
-        'date' => '2009-07-06',
-        'version' => 0.01,
-});
 
 # Init.
 $obj->init($changes);
