@@ -1,7 +1,8 @@
 TODO
 ====
 5. Test for minimal version of CPAN::Changes.
-6.
+6. Fix examples in doc to use methods.
+7.
 
 Applied
 =======
