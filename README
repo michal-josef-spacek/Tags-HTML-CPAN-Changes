@@ -79,8 +79,10 @@ ERRORS
                      Unknown parameter '%s'.
              From Tags::HTML::new():
                      Parameter 'tags' must be a 'Tags::Output::*' class.
+             Parameter 'css_class' is required.
 
      init():
+             Data object must be a 'CPAN::Changes' instance.
              Minimal version of supported CPAN::Changes is 0.500002.",
                      Version: %s
 
