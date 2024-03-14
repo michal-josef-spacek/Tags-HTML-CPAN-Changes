@@ -69,6 +69,13 @@ sub _process {
 		['b', 'div'],
 		['a', 'class', $self->{'css_class'}],
 	);
+	if ($self->{'_changes'}->preamble ne '') {
+		$self->{'tags'}->put(
+			['b', 'h1'],
+			['d', $self->{'_changes'}->preamble],
+			['e', 'h1'],
+		);
+	}
 	foreach my $changes_rel (sort { $b->version <=> $a->version } $self->{'_changes'}->releases) {
 		my $version = $changes_rel->version;
 		if (defined $changes_rel->date) {

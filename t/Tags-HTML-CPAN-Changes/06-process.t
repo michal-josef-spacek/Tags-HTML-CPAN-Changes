@@ -6,7 +6,7 @@ use CPAN::Changes::Entry;
 use CPAN::Changes::Release;
 use Tags::HTML::CPAN::Changes;
 use Tags::Output::Structure;
-use Test::More 'tests' => 9;
+use Test::More 'tests' => 10;
 use Test::NoWarnings;
 
 # Test.
@@ -25,10 +25,33 @@ is_deeply(
 	[
 		['b', 'div'],
 		['a', 'class', 'changes'],
-		# TODO preamble
+		['b', 'h1'],
+		['d', 'Revision history for perl module Foo::Bar'],
+		['e', 'h1'],
 		['e', 'div'],
 	],
 	'Tags code for CPAN changes (preamble).',
+);
+
+# Test.
+$tags = Tags::Output::Structure->new;
+$obj = Tags::HTML::CPAN::Changes->new(
+	'tags' => $tags,
+);
+$changes = CPAN::Changes->new(
+        'preamble' => '',
+);
+$obj->init($changes);
+$obj->process;
+$ret_ar = $tags->flush(1);
+is_deeply(
+	$ret_ar,
+	[
+		['b', 'div'],
+		['a', 'class', 'changes'],
+		['e', 'div'],
+	],
+	'Tags code for CPAN changes (explicit blank preamble).',
 );
 
 # Test.
@@ -60,6 +83,10 @@ is_deeply(
 	[
 		['b', 'div'],
 		['a', 'class', 'changes'],
+
+		['b', 'h1'],
+		['d', 'Revision history for perl module Foo::Bar'],
+		['e', 'h1'],
 
 		['b', 'div'],
 		['a', 'class', 'version'],
