@@ -5,7 +5,7 @@ use English;
 use Error::Pure::Utils qw(clean);
 use Tags::HTML::CPAN::Changes;
 use Test::MockObject;
-use Test::More 'tests' => 8;
+use Test::More 'tests' => 9;
 use Test::NoWarnings;
 
 # Test.
@@ -72,4 +72,14 @@ eval {
 };
 is($EVAL_ERROR, "Parameter 'css' must be a 'CSS::Struct::Output::*' class.\n",
 	"Parameter 'css' must be a 'CSS::Struct::Output::*' class (bad object).");
+clean();
+
+# Test.
+eval {
+	Tags::HTML::CPAN::Changes->new(
+		'css_class' => undef,
+	);
+};
+is($EVAL_ERROR, "Parameter 'css_class' is required.\n",
+	"Parameter 'css_class' is required.");
 clean();
