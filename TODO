@@ -1,7 +1,6 @@
 TODO
 ====
 2. Tests.
-3. Rewrite to new CPAN::Changes@0.05 API? entries?
 4. Implement preamble.
 5.
 
@@ -9,3 +8,6 @@ Applied
 =======
 1. Doc
 OK [20240305] skim
+
+3. Rewrite to new CPAN::Changes@0.05 API? entries?
+OK [20240314] skim

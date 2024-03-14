@@ -88,21 +88,19 @@ sub _process {
 			['b', 'ul'],
 			['a', 'class', 'version-changes'],
 		);
-		# TODO Rewrite to entries.
-		foreach my $group ($changes_rel->group_values) {
-			my $group_name = eval { $group->name };
-			if (! $EVAL_ERROR && $group_name ne '') {
+		foreach my $entry (@{$changes_rel->entries}) {
+			if (defined $entry->text && $entry->text ne '') {
 				$self->{'tags'}->put(
 					['b', 'h3'],
-					['d', '['.$group_name.']'],
+					['d', '['.$entry->text.']'],
 					['e', 'h3'],
 				);
 			}
-			foreach my $change (@{$group->changes}) {
+			foreach my $change (@{$entry->entries}) {
 				$self->{'tags'}->put(
 					['b', 'li'],
 					['a', 'class', 'version-change'],
-					['d', $change],
+					['d', $change->text],
 					['e', 'li'],
 				);
 			}
