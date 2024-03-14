@@ -2,11 +2,9 @@ use strict;
 use warnings;
 
 use CPAN::Changes;
-use Data::HTML::Element::A;
 use English;
 use Error::Pure::Utils qw(clean);
 use Tags::HTML::CPAN::Changes;
-use Tags::Output::Raw;
 use Test::MockObject;
 use Test::More 'tests' => 5;
 use Test::NoWarnings;
@@ -20,9 +18,7 @@ my $ret = $obj->init($changes);
 is($ret, undef, 'Init returns undef.');
 
 # Test.
-$obj = Tags::HTML::CPAN::Changes->new(
-	'tags' => Tags::Output::Raw->new,
-);
+$obj = Tags::HTML::CPAN::Changes->new;
 eval {
 	$obj->init;
 };
@@ -31,9 +27,7 @@ is($EVAL_ERROR, "Data object must be a 'CPAN::Changes' instance.\n",
 clean();
 
 # Test.
-$obj = Tags::HTML::CPAN::Changes->new(
-	'tags' => Tags::Output::Raw->new,
-);
+$obj = Tags::HTML::CPAN::Changes->new;
 eval {
 	$obj->init(Test::MockObject->new);
 };
@@ -42,9 +36,7 @@ is($EVAL_ERROR, "Data object must be a 'CPAN::Changes' instance.\n",
 clean();
 
 # Test.
-$obj = Tags::HTML::CPAN::Changes->new(
-	'tags' => Tags::Output::Raw->new,
-);
+$obj = Tags::HTML::CPAN::Changes->new;
 eval {
 	$obj->init('bad');
 };
