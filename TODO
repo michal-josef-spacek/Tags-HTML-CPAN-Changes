@@ -1,6 +1,5 @@
 TODO
 ====
-5. Test for minimal version of CPAN::Changes.
 7.
 
 Applied
@@ -18,4 +17,7 @@ OK [20240314] skim
 OK [20240314] skim
 
 6. Fix examples in doc to use methods.
+OK [20240314] skim
+
+5. Test for minimal version of CPAN::Changes.
 OK [20240314] skim
