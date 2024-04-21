@@ -1,4 +1,5 @@
 0.04
+ - Add trivial Changes file and test on it.
 
 0.03 2024-03-27T16:29:45+01:00
  - Add test of constructor.
