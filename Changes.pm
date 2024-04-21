@@ -104,11 +104,20 @@ sub _process {
 		);
 		foreach my $entry (@{$changes_rel->entries}) {
 			if (defined $entry->text && $entry->text ne '') {
-				$self->{'tags'}->put(
-					['b', 'h3'],
-					['d', '['.$entry->text.']'],
-					['e', 'h3'],
-				);
+				if (@{$entry->entries}) {
+					$self->{'tags'}->put(
+						['b', 'h3'],
+						['d', '['.$entry->text.']'],
+						['e', 'h3'],
+					);
+				} else {
+					$self->{'tags'}->put(
+						['b', 'li'],
+						['a', 'class', 'version-change'],
+						['d', $entry->text],
+						['e', 'li'],
+					);
+				}
 			}
 			foreach my $change (@{$entry->entries}) {
 				$self->{'tags'}->put(
