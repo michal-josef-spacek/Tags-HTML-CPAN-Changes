@@ -22,6 +22,7 @@ requires 'CPAN::Version' => 0;
 requires 'English' => 0;
 requires 'Error::Pure' => 0;
 requires 'Mo::utils' => 0.01;
+requires 'Mo::utils::CSS' => 0.02;
 requires 'Tags::HTML' => 0.06;
 requires 'Scalar::Util' => 0;
 requires 'perl' => '5.8.0';

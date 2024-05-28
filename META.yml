@@ -37,6 +37,7 @@ requires:
   English: 0
   Error::Pure: 0
   Mo::utils: 0.01
+  Mo::utils::CSS: 0.02
   Scalar::Util: 0
   Tags::HTML: 0.06
   perl: 5.8.0
