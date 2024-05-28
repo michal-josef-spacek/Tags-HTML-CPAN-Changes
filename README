@@ -79,9 +79,10 @@ ERRORS
      new():
              From Class::Utils::set_params():
                      Unknown parameter '%s'.
+             From Mo::utils::check_required():
+                     Parameter 'css_class' is required.
              From Tags::HTML::new():
                      Parameter 'tags' must be a 'Tags::Output::*' class.
-             Parameter 'css_class' is required.
 
      init():
              Data object must be a 'CPAN::Changes' instance.
@@ -295,8 +296,8 @@ EXAMPLE2
      # </html>
 
 DEPENDENCIES
-    Class::Utils, CPAN::Version, English, Error::Pure, Scalar::Util,
-    Tags::HTML.
+    Class::Utils, CPAN::Version, English, Error::Pure, Mo::utils,
+    Scalar::Util, Tags::HTML.
 
 REPOSITORY
     <https://github.com/michal-josef-spacek/Tags-HTML-CPAN-Changes>

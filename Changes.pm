@@ -8,6 +8,7 @@ use Class::Utils qw(set_params split_params);
 use CPAN::Version;
 use English;
 use Error::Pure qw(err);
+use Mo::utils 0.01 qw(check_required);
 use Scalar::Util qw(blessed);
 
 our $VERSION = 0.05;
@@ -27,9 +28,7 @@ sub new {
 	# Process params.
 	set_params($self, @{$object_params_ar});
 
-	if (! defined $self->{'css_class'}) {
-		err "Parameter 'css_class' is required.";
-	}
+	check_required($self, 'css_class');
 
 	# Object.
 	return $self;
@@ -295,9 +294,10 @@ Returns undef.
  new():
          From Class::Utils::set_params():
                  Unknown parameter '%s'.
+         From Mo::utils::check_required():
+                 Parameter 'css_class' is required.
          From Tags::HTML::new():
                  Parameter 'tags' must be a 'Tags::Output::*' class.
-         Parameter 'css_class' is required.
 
  init():
          Data object must be a 'CPAN::Changes' instance.
@@ -522,6 +522,7 @@ L<Class::Utils>,
 L<CPAN::Version>,
 L<English>,
 L<Error::Pure>,
+L<Mo::utils>,
 L<Scalar::Util>,
 L<Tags::HTML>.
 
