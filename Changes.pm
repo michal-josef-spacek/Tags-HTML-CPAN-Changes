@@ -158,6 +158,7 @@ sub _process_css {
 		['d', 'padding', '20px'],
 		['d', 'border-radius', '8px'],
 		['d', 'box-shadow', '0 2px 4px rgba(0, 0, 0, 0.1)'],
+		['d', 'font-family', 'Arial, Helvetica, sans-serif'],
 		['e'],
 
 		['s', '.'.$self->{'css_class'}.' .version'],
